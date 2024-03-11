@@ -1,9 +1,5 @@
 -- Insert Books
-INSERT INTO Books (Title, Author, Price, StockQuantity, ImgUrl, Description)
-VALUES
-('To Kill a Mockingbird', 'Harper Lee', 18.99, 100, 'http://example.com/mockingbird.jpg', 'A novel about childhood in a sleepy Southern town and the crisis of conscience that rocked it.'),
-('1984', 'George Orwell', 15.99, 200, 'http://example.com/1984.jpg', 'A dystopian novel set in Airstrip One, formerly Great Britain, a province of the superstate Oceania.'),
-('The Great Gatsby', 'F. Scott Fitzgerald', 20.99, 150, 'http://example.com/gatsby.jpg', 'A novel about the themes of resistance to change, decadence, and the American Dream.');
+
 
 -- Insert Users
 INSERT INTO Users (Username, Email, Password)
@@ -33,3 +29,5 @@ VALUES
 ((SELECT UserID FROM Users WHERE Username = 'JohnDoe'), '2024-03-02', 37.98),
 ((SELECT UserID FROM Users WHERE Username = 'JaneSmith'), '2024-03-03', 15.99),
 ((SELECT UserID FROM Users WHERE Username = 'AliceJohnson'), '2024-03-04', 20.99);
+
+

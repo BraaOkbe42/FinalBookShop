@@ -1,8 +1,87 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@* 
+<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<html>
+<head>
+
+</head>
+<body>
+
+    @using (Html.BeginForm("Home", "Default", FormMethod.Post))
+    {
+
+
+
+
+
+
+         <img style="margin-left:650px ; width:100px;" src="https://png.pngtree.com/png-clipart/20190613/original/pngtree-book-word-art-design-png-image_3585658.jpg" alt="Alternate Text" />
+
+        <br />
+        @*images of products
+        <div class="row mb-2">
+
+            @for (int i = 0; i < 10; i++)
+            {
+
+
+                <div id="Book1" class="col-md-6">
+                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative " style="margin:20px ">
+                        <div class="col p-4 d-flex flex-column position-static">
+
+                            <h4 class="mb-0">  Caste: The Origins of Our Discontents  </h4>
+                            <div class=" text-muted"> Isabel Wilkerson (Author) </div>
+                            <p>Price $19.53</p>
+                            <p> Publish Date  February 14, 2023</p>
+                            <div>
+                            <form>
+                                    <button type="submit" asp-controller="ShoppingCart" asp-action="Cart" class="btn btn-success">Buy now</button>
+
+                                <button  type="submit" asp-controller="ShoppingCart" asp-action="Cart" class="btn btn-primary">add to card</button>
+                                    <button type="submit" asp-controller="Home" asp-action="ShowBook" class="btn btn-warning">Show Book</button>
+
+                            </form>
+
+                            </div>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img class="bd-placeholder-img" width="200" height="250" src="https://images-us.bookshop.org/ingram/9780593230275.jpg?height=500&v=v2" preserveAspectRatio="xMidYMid slice" />
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+
+    }
+
+
+
+</body>
+
+</html> *@
+
+
+
+
+
+@model IEnumerable<Book>
+
+
+<div class="row">
+    <div class="col-md-4">
+        @foreach (var item1 in Model)
+        {
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="@item1.ImgUrl" width="100" height="255" alt="Card image cap">
+                <div class="card-body">
+                    <p>@item1.Title</p>
+                    <p>@item1.description</p>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+

@@ -1,5 +1,7 @@
-using BookShop.Data;
+using BookShop.Models;
 using BookStore.Data;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +16,24 @@ builder.Services.AddDbContext<BookStoreContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+builder.Services.AddIdentity<User, IdentityRole>(
+    options =>
+    {
+        options.Password.RequiredUniqueChars = 0;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredLength = 8;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
+    }
+    ).AddEntityFrameworkStores<BookStoreContext>().AddDefaultTokenProviders();
+
+
 var app = builder.Build();
 
-if (args.Length == 1 && args[0].ToLower() == "SeedData")
-{
-    //await Seed.SeedUsersAndRolesAsync(app);
-    Seed.SeedData(app);
-}
+
+
 
 
 

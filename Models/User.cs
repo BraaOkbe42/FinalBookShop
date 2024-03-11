@@ -1,15 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookShop.Models
 {
-    public class User
+    public class User: IdentityUser
     {
         [Key]
-        public int UserID { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; } // Consider storing hashed passwords
 
+        public int UserID { get; set; }
         // Navigation property for related Cart
         public Cart Cart { get; set; }
         // Navigation property for related Orders
