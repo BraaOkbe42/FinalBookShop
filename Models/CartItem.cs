@@ -8,14 +8,9 @@ namespace BookShop.Models
         [Key]
         public int CartItemID { get; set; }
 
-        [ForeignKey("Cart")]
-        public int CartID { get; set; }
-
-        [ForeignKey("Book")]
-        public int BookID { get; set; }
-        public int Quantity { get; set; }
-
-        public Cart Cart { get; set; }
-        public Book Book { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public float TotalPrice { get; set; }
+        public List<Order> orders { get; set; }
     }
 }

@@ -9,8 +9,8 @@ namespace BookShop.Models
 
         public int UserID { get; set; }
         // Navigation property for related Cart
-        public Cart Cart { get; set; }
-        // Navigation property for related Orders
-        public ICollection<Order> Orders { get; set; }
+        public List<CartItem> CartItems { get; set; }
+
+         
     }
 }
